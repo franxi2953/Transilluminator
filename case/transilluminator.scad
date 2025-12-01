@@ -37,7 +37,7 @@ turns = thread_h/pitch - 1; //
 
 
 //these versions are scaled for better fit with the M3s
-standoff();
+//standoff();
 module standoff(){
       difference(){
                 //internal cylinder space
@@ -48,7 +48,7 @@ module standoff(){
             
  
 
-hat_screen();
+//hat_screen();
 module hat_screen(){
  difference(){ union(){ 
      frame();
@@ -93,7 +93,7 @@ module negative_neck(){
         translate([-holder_x/2-neck_x/2,0,-neck_h/2])   cube(size=[neck_x-wall*2-corr,neck_y-dist_from_border*2-wall*2,neck_h], center= true);
         }}
 
-//  positive_neck();
+//positive_neck();
 module positive_neck(){
  difference(){
      union(){
