@@ -23,13 +23,14 @@ dist_from_border=8;//d of screw holes from border of acrylic
 use <threadlib/threadlib.scad> //read https://github.com/adrianschlatter/threadlib to install the lib
 
 ////////////////////////////////////
-//  Parameters  //
+//  Changeable Parameters  //
 
 standoff_type= [19.05, 9.5];
-thread_h = standoff_type[0];// define here the standoff type 0=19,05 and 1=9,5
+thread_h = standoff_type[1];// define here the standoff type 0=19,05 and 1=9,5
+
+//  Non-editable Parameters  //
 standoff_d=7;
-thread_ri = 3/2; // thread internal radius
-stand_r=7/2;
+stand_r=8/2;
 thread_size = "M3x0.5"; //  thread.
 specs = thread_specs(str(thread_size, "-ext"));
 pitch = specs[0];
@@ -37,12 +38,13 @@ turns = thread_h/pitch - 1; //
 
 
 //these versions are scaled for better fit with the M3s
-//standoff();
+
+standoff();
 module standoff(){
       difference(){
                 //internal cylinder space
                  color("grey") cylinder(h=thread_h, r=stand_r, $fn=6, center =false);
-          scale([1.2,1.2,1]) tap(thread_size, turns=turns+corr);
+          scale([1.1,1.1,1]) tap(thread_size, turns=turns+corr*10);
 
             }}              
             
