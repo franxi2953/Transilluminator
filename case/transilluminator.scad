@@ -39,7 +39,7 @@ turns = thread_h/pitch - 1; //
 
 //these versions are scaled for better fit with the M3s
 
-standoff();
+//standoff();
 module standoff(){
       difference(){
                 //internal cylinder space
@@ -50,17 +50,17 @@ module standoff(){
             
  
 
-//hat_screen();
+hat_screen();
 module hat_screen(){
  difference(){ union(){ 
      frame();
     negative_neck();
   }
   //screw holes
-    translate([-holder_x/2+dist_from_border+screw_r, screw_d/2+screw_r/2,0]) cylinder(h=wall*4, r=screw_r,$fn=40, center=true);
-  translate([-holder_x/2+dist_from_border+screw_r, -screw_d/2-screw_r/2,0]) cylinder(h=wall*4, r=screw_r,$fn=40, center=true);
-  translate([holder_x/2-dist_from_border-screw_r, screw_d/2+screw_r/2,0]) cylinder(h=wall*4, r=screw_r,$fn=40, center=true);
-  translate([holder_x/2-dist_from_border-screw_r, -screw_d/2-screw_r/2,0]) cylinder(h=wall*4, r=screw_r,$fn=40, center=true);
+    translate([-holder_x/2+dist_from_border-0.25+screw_r, screw_d/2+screw_r/2,0]) color("red")cylinder(h=wall*4, r=screw_r,$fn=40, center=true);
+  translate([-holder_x/2+dist_from_border-0.25+screw_r, -screw_d/2-screw_r/2,0]) color("green")cylinder(h=wall*4, r=screw_r,$fn=40, center=true);
+  translate([holder_x/2-dist_from_border+0.25-screw_r, screw_d/2+screw_r/2,0]) color("white")cylinder(h=wall*4, r=screw_r,$fn=40, center=true);
+  translate([holder_x/2-dist_from_border+0.25-screw_r, -screw_d/2-screw_r/2,0]) color("blue")cylinder(h=wall*4, r=screw_r,$fn=40, center=true);
   }
     }
 
